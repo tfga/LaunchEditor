@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+
+#
+# Usage:
+# 
+#     poetry run ./runTests [nose extra args]
+# 
+# e.g.:
+# 
+#     poetry run ./runTests -v
+#     poetry run ./runTests -vv
+#
+
+PYTHONPATH=src nosetests "$@" test/*.py
