@@ -1,5 +1,6 @@
 import unittest
-from LaunchEditor.launchEditor import getEditor, LaunchEditorException
+from LaunchEditor.launchEditor import getEditor, LaunchEditorException,\
+    launchEditor, SystemException
 from mock.mock import patch
 import os
 
@@ -7,7 +8,7 @@ import os
 class Test(unittest.TestCase):
 
     @patch.dict(os.environ, { 'EDITOR': 'my-editor' })
-    def test_happy_path(self):
+    def test_getEditor_happy_path(self):
         
         self.assertEquals(getEditor(), 'my-editor')
         
@@ -20,6 +21,16 @@ class Test(unittest.TestCase):
             getEditor()
             
         self.assertEqual(cm.exception.message, '$EDITOR undefined')
+
+        
+    @patch.dict(os.environ, { 'EDITOR': 'non-existent-editor' })
+    def test_launchEditor_editor_fails(self):
+        
+        with self.assertRaises(SystemException) as cm:
+            
+            launchEditor()
+            
+        self.assertEqual(cm.exception.message, 'Editor failed with status 32512')
 
         
         

@@ -4,8 +4,8 @@ from tempfile import NamedTemporaryFile
 import os
 
 
-class LaunchEditorException(Exception):
-    pass
+class LaunchEditorException(Exception):     pass
+class SystemException(Exception):           pass
 
 
 def getEditor():
@@ -17,6 +17,15 @@ def getEditor():
         raise LaunchEditorException('$EDITOR undefined')
 
     return editor
+
+
+def system(cmd):
+    
+    r = os.system(cmd)
+    
+    if r != 0:
+            
+        raise SystemException('Editor failed with status {}'.format(r))
 
 
 def launchEditor(**tmpFileArgs):
