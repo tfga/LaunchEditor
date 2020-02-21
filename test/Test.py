@@ -1,5 +1,5 @@
 import unittest
-from LaunchEditor.launchEditor import getEditor
+from LaunchEditor.launchEditor import getEditor, LaunchEditorException
 from mock.mock import patch
 import os
 
@@ -15,7 +15,7 @@ class Test(unittest.TestCase):
     @patch('os.environ', {})
     def test_EDITOR_not_set(self):
         
-        with self.assertRaises(Exception) as cm:
+        with self.assertRaises(LaunchEditorException) as cm:
             
             getEditor()
             

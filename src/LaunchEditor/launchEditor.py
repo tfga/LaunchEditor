@@ -4,13 +4,17 @@ from tempfile import NamedTemporaryFile
 import os
 
 
+class LaunchEditorException(Exception):
+    pass
+
+
 def getEditor():
 
     editor = os.environ.get('EDITOR')
 
     if editor == None:
 
-        raise Exception('$EDITOR undefined')
+        raise LaunchEditorException('$EDITOR undefined')
 
     return editor
 
