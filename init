@@ -1,0 +1,21 @@
+
+
+# # Create the virtualenv manually
+# # (usually pipenv does this for you, but this project requires access to site-packages).
+# pipenv --two --site-packages 
+
+# # Install dev dependencies
+# pipenv install --dev
+
+# # Print virtualenv path
+# echo
+# echo "virtualenv: $(pipenv --venv)"
+
+
+poetry install
+
+# Create link to virtual env
+echo
+echo 'Virtual env:'
+ln -sfv $(poetry env info -p) .venv
+
