@@ -33,6 +33,12 @@ class Test(unittest.TestCase):
         self.assertEqual(cm.exception.message, 'Editor failed with status 32512')
 
         
+    def _test_launchEditor_for_real(self):
+        
+        print "'{}'".format(launchEditor())
+            
+
+        
         
 
 
