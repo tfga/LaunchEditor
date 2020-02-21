@@ -4,6 +4,12 @@ version = "0.1.0"
 description = ""
 authors = ["Thiago F. G. Albuquerque <thiagofga@gmail.com>"]
 
+packages = [
+
+    { include = "LaunchEditor", from = "src" },
+]
+
+
 [tool.poetry.dependencies]
 python = "^2.7"
 
