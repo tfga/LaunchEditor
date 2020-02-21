@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 from tempfile import NamedTemporaryFile
-from tfga.System import system
 import os
 
 
@@ -11,7 +10,7 @@ def getEditor():
 
     if editor == None:
 
-        raise '$EDITOR undefined'
+        raise Exception('$EDITOR undefined')
 
     return editor
 

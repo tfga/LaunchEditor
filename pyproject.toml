@@ -6,6 +6,7 @@ authors = ["Thiago F. G. Albuquerque <thiagofga@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^2.7"
+mock = "3.0.5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.6"
