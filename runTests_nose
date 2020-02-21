@@ -3,7 +3,7 @@
 #
 # Usage:
 # 
-#     ./runTests [pytest extra args]
+#     ./runTests [nose extra args]
 # 
 # e.g.:
 # 
@@ -11,4 +11,4 @@
 #     ./runTests -vv
 #
 
-PYTHONPATH=src poetry run pytest "$@" test/*.py
+PYTHONPATH=src poetry run nosetests "$@" test/*.py
