@@ -39,12 +39,21 @@ def launchEditor(**tmpFileArgs):
     temp = NamedTemporaryFile(delete=False, dir='.', **tmpFileArgs)
     temp.close()
 
-    system('{} {}'.format(getEditor(), temp.name))
+    try:
+        
+        system('{} {}'.format(getEditor(), temp.name))
+        
+        # Now that the editor has finished, let's reopen the file
+        temp = open(temp.name)
+        
+        msg = temp.read()
+        temp.close()
+        
+        return msg
     
-    # Now that the editor has finished, let's reopen the file
-    temp = open(temp.name)
-    
-    msg = temp.read()
-    temp.close()
+    finally:
 
-    return msg
+        # Deleting
+        os.remove(temp.name)
+
+
